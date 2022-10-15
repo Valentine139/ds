@@ -1,0 +1,9 @@
+from collections import Counter
+def count_cust1(n_customers):
+    s = [i for i in range(n_customers)]
+    k = map(lambda x: sum(map(int, list(str(x)))),s)
+    return Counter(k)
+def count_cust2(n_customers,n_first_id=0):
+    s = [i for i in range(n_first_id,n_first_id+n_customers)]
+    k = map(lambda x: sum(map(int,list(str(x)))),s)
+    return Counter(k)
