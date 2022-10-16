@@ -1,9 +1,15 @@
 from collections import Counter
+
+
 def count_cust1(n_customers):
-    s = [i for i in range(n_customers)]
-    k = map(lambda x: sum(map(int, list(str(x)))),s)
-    return Counter(k)
-def count_cust2(n_customers,n_first_id=0):
-    s = [i for i in range(n_first_id,n_first_id+n_customers)]
-    k = map(lambda x: sum(map(int,list(str(x)))),s)
-    return Counter(k)
+    """Подсчет числа покупателей, попадающих в каждую группу, если нумерация начинается с 0"""
+    cust_ids = [ids for ids in range(n_customers)]
+    digit_sums = map(lambda digit: sum(map(int, list(str(digit)))), cust_ids)
+    return Counter(digit_sums)
+
+
+def count_cust2(n_customers, n_first_id=0):
+    """Подсчет числа покупателей, попадающих в каждую группу, если id начинается с произвольного числа"""
+    cust_ids = [ids for ids in range(n_first_id, n_first_id+n_customers)]
+    digit_sums = map(lambda digit: sum(map(int, list(str(digit)))), cust_ids)
+    return Counter(digit_sums)
